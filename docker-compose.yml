@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  golang:
+    build:
+      context: ./app
+      dockerfile: ../docker/go/Dockerfile
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    # depends_on:
+    #   - mongo
+  # mongo:
+  #   image: mongo:4.4.6
+  #   restart: always
+  #   links:
+  #     - golang
+  #   networks:
+  #     - backend
+# networks:
+#   backend:
